@@ -1,0 +1,18 @@
+def addcandidate(request):
+    if request.method=="POST":
+        if request.user.is_authenticated:
+            form=Candidateform(request.POST, request.FILES)
+            if form.is_valid:
+                form.save()
+                candidate=Candidate.objects.get(name=request.POST["name"])
+                if  candidate.email == request.user.email :
+                    messages.success(request, "You are now a candidate")
+                    return redirect('home')
+                else :
+                    messages.success(request , "This is not you!! , Please enter your login email")
+                    return redirect('addcandidate')
+            else:
+                messages.success(request , "Please enter valid information.")
+                return redirect('addcandidate')
+
+

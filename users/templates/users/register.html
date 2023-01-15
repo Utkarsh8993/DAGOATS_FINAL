@@ -1,0 +1,22 @@
+{% extends "events/layout.html" %}
+
+{% block body %}
+
+<br/>
+<center>
+    <h1>Register Form</h1>
+</center><br/><br/>
+<style>
+    .form{
+        margin-top: 10px;
+        margin-left: 35px;
+        margin-right: 35px;
+        margin-bottom: 30px;
+    }
+</style>
+    <form method="post" action="" class="form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-outline-secondary">
+    </form>
+{% endblock %}

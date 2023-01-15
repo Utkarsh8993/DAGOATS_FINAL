@@ -1,0 +1,188 @@
+{% extends 'events/layout.html' %}
+{% load static %}
+{% block body %}
+
+<br>
+<br>
+<center><h2 style="color:#fff">Result</h2></center>
+<br>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&dsiplay=swap');
+*
+{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: rgb(5, 27, 71);
+}
+.card{
+  position: relative;
+  width: 1442px;
+  height: 380px;
+  background-image: linear-gradient(50deg,rgb(234, 189, 154),rgb(72, 178, 127));
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  transition: 0.5s;
+  margin: 10px 10px 10px 10px ;
+}
+
+.card .circle{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.card .circle::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #d83133;
+  clip-path: circle(120px at center);
+  transition: 0.5s;
+}
+.card:hover .circle:before{
+  background: #0065c3;
+  clip-path: circle(400px at center);
+}
+.card img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  height: 300px;
+  pointer-events: none;
+  transition: 0.5s;
+}
+.card:hover img{
+  left: 78%;
+  height: 300px;
+}
+.card .content{
+  position:relative;
+  width: 50%;
+  left: 10%;
+  padding: 20px 20px 20px 40px;
+  transition: 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
+.card:hover .content{
+  left: -25%;
+  opacity: 1;
+  visibility: visible;
+}
+.card .content h2{
+  color: #fff;
+  text-transform:uppercase ;
+  font-size: 2em;
+  line-height: 1em;
+  margin-bottom: 5px;
+
+}
+.card .content p{
+  color:#fff
+}
+.card .content a{
+  position: relative;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: #fff;
+  color: #111;
+  margin-top: 10px;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+@media (max-width: 991px){
+  .card{
+    width: auto;
+    max-width: 350px;
+    align-items: flex-start;
+    margin: 10px;
+  }
+  .card:hover
+{
+  height: 600px;
+}
+.card .content{
+  width: 100%;
+  left: 0;
+  padding: 30px;
+}
+.card img{
+  top: 70%;
+  left: 50%;
+  height: 300px;
+}
+}
+@media (max-width: 420px){
+  .card .content
+  {
+  padding: 20px;
+  }
+}
+
+.pic{
+      width:16rem;
+      height:16rem;
+      margin:1rem;
+      width: 40%;
+      object-fit: cover;
+
+}
+.c{
+    font-size: 20px;
+}
+
+</style>
+
+  
+
+        
+    
+  <div class="card">
+    <div class="circle"></div>
+    <div class="content">
+        <h1>The winner is:</h1>
+        <br>
+    <h2>Name:{{winner.name}}</h2>
+    <br>
+    <p class="c">Number of Votes:{{winner.votes}}</p>
+    <!--<a href="#">Vote Now</a>-->
+    
+    
+    
+    
+
+    
+    </div>
+  
+    {% if candidate.image %}
+      <img src="{{candidate.image.url}}" class="pic">
+    {% else %}
+      <img src="{% static 'elections/images/default.png' %}" class="pic">
+    {% endif %}
+  </div>
+  
+
+
+
+
+    {% endblock %}

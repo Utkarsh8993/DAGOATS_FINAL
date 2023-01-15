@@ -1,0 +1,35 @@
+{% extends 'events/layout.html' %}
+
+{% block body %}
+<style>
+    body{
+        background-color: darkseagreen;
+    }
+</style>
+<style>
+    .card{
+      display: inline-block;
+      margin-left: 70px;
+      margin-top: 20px;
+      font-weight: 100;
+    }
+</style>
+
+<center>
+    <h1>
+        Venues
+    </h1>
+</center>
+
+{% for venue in venues %}
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Name: </h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ venue.name }}</h6>
+        <h5 class="card-title">Address: </h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ venue.address }}</h6>
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}

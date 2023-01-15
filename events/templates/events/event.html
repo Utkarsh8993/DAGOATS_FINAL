@@ -1,0 +1,40 @@
+{% extends 'events/layout.html' %}
+{% load static %}
+{% block body %}
+<style>
+    body{
+        background-image: linear-gradient(50deg,rgb(232, 235, 227),rgb(205, 213, 209));
+        font-size: 20px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    .container{
+        margin-left: 200px;
+        margin-top:40px;
+        background-color: rgb(174, 172, 172);
+        width: 75%;
+        
+
+    }
+    .container1{
+        width: 60%;
+    }
+</style>
+
+<center><h1>{{event.name}}</h1></center>
+<br>
+<div class="container">
+    <p><b>Name: </b>{{event.name}}</p>
+    <p><b>Venue: </b>{{event.venue}}</p>
+    <p><b>Date: </b>{{event.date}}</p>
+    <p><b>Timing: </b>{{event.time}}</p>
+    <p><b>Duration: </b>{{event.duration}}</p>
+    <p><b>Year of Participation: </b>{{event.yop}}</p>
+    <p><b>Branch: </b>{{event.branch}}</p>
+    <p><b>Contact No.: </b>{{event.mobile}}</p>
+    <p><b>Email: </b>{{event.email}}</p>
+    <div class="container1">
+        <p><b>About: </b>{{event.description}}</p>
+    </div>
+
+</div>
+{% endblock %}
